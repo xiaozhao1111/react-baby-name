@@ -6,7 +6,7 @@ function App({ names }) {
   return (
     <ul>
       {names.map((entry) => 
-        <li key={entry.id} className={entry.sex}>{entry.name}</li>
+        <li key={entry.id} className={entry.sex}><button>{entry.name}</button></li>
       )}
     </ul>
   );
