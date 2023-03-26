@@ -1,9 +1,16 @@
+// React
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
+// Styles
 import "normalize.css"
 import './css/styles.css';
+
+// Components
 import App from './App';
 
+// Data
+import { names } from './data';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
