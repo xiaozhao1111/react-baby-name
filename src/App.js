@@ -1,14 +1,13 @@
 // React
 import React from "react";
 
+// Components
+import NamePicker from "./components/name-picker";
+
 
 function App({ names }) {
   return (
-    <ul>
-      {names.map((entry) => 
-        <li key={entry.id} className={entry.sex}><button>{entry.name}</button></li>
-      )}
-    </ul>
+    <NamePicker names={names} />
   );
 }
 
