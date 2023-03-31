@@ -1,16 +1,25 @@
-import React, {useState} from "react";
+import React, {useEffect, useRef} from "react";
 
-function Search() {
-    const [searchName, setSearchName] =useState('Simon');
+function Search({searchValue, setSearchValue}) {
+    
+    const inputRef = useRef();
+    
+
+    useEffect(() => {
+        inputRef.current.focus();
+    }, []);
+
     function handleChange(event) {
-        setSearchName(event.target.value)
+        setSearchValue(event.target.value)
     }
+
     return(
         <header>
             <input 
+                ref={inputRef}
                 type="text" 
                 placeholder="Type a name ..."
-                value={searchName}
+                value={searchValue}
                 onChange={handleChange}
             />
         </header>

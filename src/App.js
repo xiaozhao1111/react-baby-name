@@ -1,5 +1,6 @@
 // React
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
+
 
 // Components
 import NamePicker from "./components/name-picker";
@@ -7,10 +8,12 @@ import Search from "./components/search";
 
 
 function App({ names }) {
+  const [searchValue, setSearchValue] = useState('');
+
   return (
     <Fragment>
-      <Search />
-      <NamePicker names={names} />
+      <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+      <NamePicker names={names} searchValue={searchValue} />
     </Fragment>
   );
 }
