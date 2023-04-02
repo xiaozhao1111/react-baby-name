@@ -2,9 +2,8 @@ import React, {useEffect, useRef} from "react";
 
 function Search({searchValue, setSearchValue}) {
     
+    // use inputRef to focus on the input element when the page is loaded
     const inputRef = useRef();
-    
-
     useEffect(() => {
         inputRef.current.focus();
     }, []);
