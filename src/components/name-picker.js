@@ -1,4 +1,5 @@
 import React from "react";
+import NameList from "./name-list";
 
 function NamePicker({names, searchValue, shortList, setShortList}) {
 
@@ -7,19 +8,14 @@ function NamePicker({names, searchValue, shortList, setShortList}) {
         filter((entry) => 
             entry.name.toLowerCase().includes(searchValue.toLowerCase())
         )
+    // filter names which is not already in the short list
         .filter((entry) => !shortList.includes(entry.id));
     function addToShortList(id) {
         setShortList([...shortList, id])
     }
 
     return (
-    <ul>
-        {filteredNames.map((entry) => 
-            <li key={entry.id} className={entry.sex}>
-                <button onClick={() => addToShortList(entry.id)}>{entry.name}</button>
-            </li>
-        )}
-    </ul>
+        <NameList nameList={filteredNames} onItemClick={addToShortList} />
     )
 }
 

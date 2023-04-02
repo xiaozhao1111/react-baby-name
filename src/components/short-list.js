@@ -1,7 +1,18 @@
 import React from "react";
+import NameList from "./name-list";
 
-function ShortList({shortList, setShortList}) {
-    return <pre>{JSON.stringify(shortList)}</pre>
+function ShortList({names, shortList, setShortList}) {
+const shortListedNames = names.filter((entry) => shortList.includes(entry.id));
+
+function removeFromShortList(id) {
+    setShortList(shortList.filter((i) => i !== id));
+}
+
+    return (
+    <div className="short-list">
+        <NameList nameList={shortListedNames} onItemClick={removeFromShortList} />
+    </div>
+    );
 }
 
 export default ShortList;
